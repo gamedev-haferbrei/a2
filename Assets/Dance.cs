@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum DanceMove
-{
-    Spin,
-}
-
 public class Dance : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -24,7 +19,7 @@ public class Dance : MonoBehaviour
 
     public static int DanceMoveCount { get => danceMoves.Length; }
 
-    bool dancing = false;
+    public bool dancing = false;
 
     public IEnumerator DoDanceMove(int index)
     {
