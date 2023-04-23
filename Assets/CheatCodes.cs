@@ -7,13 +7,21 @@ using UnityEngine;
 public class CheatCodes : MonoBehaviour
 {
     [SerializeField] GameObject npcGroup;
+    [SerializeField] GameObject playerObject;
+
+    Player player;
     Animal[] npcs;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = playerObject.GetComponent<Player>();
         npcs = npcGroup.GetComponentsInChildren<Animal>();
-        StartCoroutine(RecognizeCheatCode("doge", nameof(Doge)));
+
+        foreach ((string name, string callback) in CHEAT_CODES)
+        {
+            StartCoroutine(RecognizeCheatCode(name, callback));
+        }
     }
 
     IEnumerator RecognizeCheatCode(string name, string callback)
@@ -24,7 +32,7 @@ public class CheatCodes : MonoBehaviour
         {
             foreach (char c in Input.inputString)
             {
-                if (c == name[pos])
+                if (char.ToLower(c) == char.ToLower(name[pos]))
                 {
                     pos++;
                     if (pos == name.Length)
@@ -36,12 +44,17 @@ public class CheatCodes : MonoBehaviour
                 else
                 {
                     pos = 0;
-                    if (c == name[pos]) pos++;
                 }
             }
             yield return null;
         }
     }
+
+    static readonly (string, string)[] CHEAT_CODES =
+    {
+        ("doge", nameof(Doge)),
+        ("ninja", nameof(Ninja)),
+    };
 
     IEnumerator Doge()
     {
@@ -49,6 +62,12 @@ public class CheatCodes : MonoBehaviour
         {
             npc.ToggleDoge();
         }
+        yield return null;
+    }
+
+    IEnumerator Ninja()
+    {
+        player.ToggleNinja();
         yield return null;
     }
 

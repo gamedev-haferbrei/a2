@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] Dance dance;
+    Dance dance;
+    SpriteRenderer spriteRenderer;
+
+    public bool isNinja { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        dance = GetComponent<Dance>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     static readonly KeyCode[] NUMBER_KEYS =
@@ -37,5 +41,13 @@ public class Player : MonoBehaviour
                 StartCoroutine(dance.DoDanceMove(i));
             }
         }
+    }
+
+    public void ToggleNinja()
+    {
+        isNinja = !isNinja;
+
+        Color c = spriteRenderer.color;
+        spriteRenderer.color = new Color(c.r, c.g, c.b, isNinja ? 0.5f : 1f);
     }
 }

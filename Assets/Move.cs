@@ -5,12 +5,16 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] float speed = 1;
-    [SerializeField] Dance playerDance;
+
+    [SerializeField] GameObject playerObject;
+    Dance playerDance;
+    Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerDance = playerObject.GetComponent<Dance>();
+        player = playerObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -26,7 +30,8 @@ public class Move : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) dir.x += 1;
         if (Input.GetKey(KeyCode.A)) dir.x -= 1;
 
-        transform.position += dir * Time.deltaTime * speed;
+        if (player.isNinja) dir /= 2;
 
+        transform.position += dir * Time.deltaTime * speed;
     }
 }
