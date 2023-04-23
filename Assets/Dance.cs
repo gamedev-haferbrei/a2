@@ -38,6 +38,17 @@ public class Dance : MonoBehaviour
         dancing = false;
     }
 
+    // https://easings.net/#easeInOutBack
+    float EaseInOutBack(float x)
+    {
+        float c1 = 1.70158f;
+        float c2 = c1 * 1.525f;
+
+        return x < 0.5
+          ? (Mathf.Pow(2 * x, 2) * ((c2 + 1) * 2 * x - c2)) / 2
+          : (Mathf.Pow(2 * x - 2, 2) * ((c2 + 1) * (x * 2 - 2) + c2) + 2) / 2;
+    }
+
     // REGISTER DANCE MOVES HERE
     static readonly string[] danceMoves =
     {
@@ -49,8 +60,8 @@ public class Dance : MonoBehaviour
         float t = 0;
         while (t < 1)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, 360 * t);
-            float scale = 1 - 0.2f * Mathf.Sin(t * Mathf.PI);
+            transform.rotation = Quaternion.Euler(0f, 0f, 360 * EaseInOutBack(t));
+            float scale = 1 - 0.1f * Mathf.Sin(t * Mathf.PI);
             transform.localScale = new Vector3(scale, scale, 1);
             yield return null;
             t += Time.deltaTime;
