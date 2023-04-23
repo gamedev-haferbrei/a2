@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &134217604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134217605}
+  m_Layer: 0
+  m_Name: Disco Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134217605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134217604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8642329, y: -1.8860164, z: 0.01148007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374003332}
   - component: {fileID: 1374003333}
+  - component: {fileID: 1374003334}
   m_Layer: 0
   m_Name: DiscoBackground
   m_TagString: Untagged
@@ -394,7 +426,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 216325269
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 938a7812410175e4bb758db0c1b694ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -407,6 +439,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1374003334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374003331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b60d7a9bb9bf48449f687fd5a2fd4bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1412639385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -625,3 +669,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0abfdcd8b01d0d46a681f1035009065, type: 3}
+--- !u!1001 &691271497752096772
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8642329
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8860164
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143430525532898044, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937312049939769868, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}
+      propertyPath: m_Name
+      value: Disco Light
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a436a9b450eada4d9fabf2f0ac808b4, type: 3}

@@ -41,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 216325269
     locked: 0
+  - name: Disco Lights
+    uniqueID: 1310382965
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

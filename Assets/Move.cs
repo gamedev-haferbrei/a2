@@ -30,6 +30,8 @@ public class Move : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) dir.x += 1;
         if (Input.GetKey(KeyCode.A)) dir.x -= 1;
 
+        dir.Normalize();
+
         if (player.isNinja) dir /= 2;
 
         transform.position += dir * Time.deltaTime * speed;
