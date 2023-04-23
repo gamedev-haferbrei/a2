@@ -57,17 +57,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ac0d9443b13b8409d21903dcd8d095, type: 3}
---- !u!114 &2683046575286751241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8232072967483224118, guid: 50ac0d9443b13b8409d21903dcd8d095, type: 3}
-  m_PrefabInstance: {fileID: 6269619924761927743}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3115198427061776167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a6a3a37dd1abd41bcf0148a536a5de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3115198427061776167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8951258767844577048, guid: 50ac0d9443b13b8409d21903dcd8d095, type: 3}
@@ -85,4 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17dc2a63834d99447b9d505204096323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dance: {fileID: 2683046575286751241}
+  doge: {fileID: 21300000, guid: 0d4f0a4b68920f7459fde8ad2d50ea20, type: 3}

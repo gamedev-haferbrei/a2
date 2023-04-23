@@ -1,23 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using UnityEngine;
 
 public class CheatCodes : MonoBehaviour
 {
+    [SerializeField] GameObject npcGroup;
+    Animal[] npcs;
+
     // Start is called before the first frame update
     void Start()
     {
+        npcs = npcGroup.GetComponentsInChildren<Animal>();
         StartCoroutine(RecognizeCheatCode("doge", nameof(Doge)));
     }
 
     IEnumerator RecognizeCheatCode(string name, string callback)
     {
         int pos = 0;
-        Action reset = () =>
-        {
-            pos = 0;
-        };
 
         while (true)
         {
@@ -44,7 +45,10 @@ public class CheatCodes : MonoBehaviour
 
     IEnumerator Doge()
     {
-        Debug.Log("DOGE");
+        foreach (Animal npc in npcs)
+        {
+            npc.ToggleDoge();
+        }
         yield return null;
     }
 
