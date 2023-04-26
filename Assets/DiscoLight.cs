@@ -17,6 +17,7 @@ public class DiscoLight : MonoBehaviour
 
     void SetRandomColor()
     {
+        if (Dance.epicDancing) return;
         spriteRenderer.color = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
     }
 

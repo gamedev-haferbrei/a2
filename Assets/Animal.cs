@@ -37,6 +37,6 @@ public class Animal : MonoBehaviour
 
     void DoDanceMove()
     {
-        StartCoroutine(dance.DoDanceMove(Random.Range(0, Dance.DanceMoveCount)));
+        StartCoroutine(dance.DoDanceMove(false, Random.Range(0, Dance.DanceMoveCount)));
     }
 }

@@ -34,11 +34,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < Dance.DanceMoveCount; i++)
+        for (int i = 0; i < Dance.DanceMoveCount + Dance.EpicDanceMoveCount; i++)
         {
             if (Input.GetKeyDown(NUMBER_KEYS[i]))
             {
-                StartCoroutine(dance.DoDanceMove(i));
+                StartCoroutine(dance.DoDanceMove(i >= Dance.DanceMoveCount, i < Dance.DanceMoveCount ? i : i - Dance.DanceMoveCount));
             }
         }
     }

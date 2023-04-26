@@ -17,6 +17,13 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Dance.epicDancing)
+        {
+            spriteRenderer.color = Color.black;
+            return;
+        }
+
+        SetBrightness(brightness);
         if (Input.GetKeyDown(KeyCode.O))
         {
             SetBrightness(Mathf.Clamp(brightness - 0.1f, 0f, 1f));
