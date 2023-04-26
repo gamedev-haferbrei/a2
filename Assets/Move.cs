@@ -10,6 +10,8 @@ public class Move : MonoBehaviour
     Dance playerDance;
     Player player;
 
+    public Vector3 dir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class Move : MonoBehaviour
     {
         if (playerDance.dancing) return; // No moving while dancing!
 
-        Vector3 dir = Vector3.zero;
+        dir = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W)) dir.y += 1;
         if (Input.GetKey(KeyCode.S)) dir.y -= 1;
@@ -33,6 +35,8 @@ public class Move : MonoBehaviour
         dir.Normalize();
 
         if (player.isNinja) dir /= 2;
+
+        if (dir != Vector3.zero) CheatCodes.squidGameActive = false;
 
         transform.position += dir * Time.deltaTime * speed;
     }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -54,6 +53,7 @@ public class CheatCodes : MonoBehaviour
     {
         ("doge", nameof(Doge)),
         ("ninja", nameof(Ninja)),
+        ("squidgame", nameof(SquidGame)),
     };
 
     IEnumerator Doge()
@@ -69,6 +69,30 @@ public class CheatCodes : MonoBehaviour
     {
         player.ToggleNinja();
         yield return null;
+    }
+
+    public static bool squidGameActive = false;
+    public static bool squidGameRed = true;
+    IEnumerator SquidGame()
+    {
+        squidGameActive = true;
+        squidGameRed = true;
+        while (squidGameActive)
+        {
+            squidGameRed = !squidGameRed;
+
+            float t = Random.Range(1f, 5f);
+            while (squidGameActive && t > 0f)
+            {
+                yield return null;
+                t -= Time.deltaTime;
+            }
+        }
+
+        foreach (Animal npc in npcs)
+        {
+            npc.SquidGameUndie();
+        }
     }
 
     // Update is called once per frame

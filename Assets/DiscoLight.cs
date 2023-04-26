@@ -17,13 +17,13 @@ public class DiscoLight : MonoBehaviour
 
     void SetRandomColor()
     {
-        if (Dance.epicDancing) return;
+        if (Dance.epicDancing || CheatCodes.squidGameActive) return;
         spriteRenderer.color = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (CheatCodes.squidGameActive) spriteRenderer.color = CheatCodes.squidGameRed ? Color.red : Color.green;
     }
 }
