@@ -63,13 +63,14 @@ public class Dance : MonoBehaviour
     // REGISTER DANCE MOVES HERE
     static readonly string[] danceMoves =
     {
-        nameof(Spin),
+        nameof(Spin),nameof(Square)
     };
 
     static readonly string[] epicDanceMoves =
     {
         nameof(Whoosh),
     };
+
 
     IEnumerator Spin()
     {
@@ -128,6 +129,34 @@ public class Dance : MonoBehaviour
             transform.localScale = new Vector3(1 / t, t, 1);
             yield return null;
             t += Time.deltaTime * 2;
+        }
+    }
+    IEnumerator Square() {
+        Vector3 pos = transform.position;
+        int random = Random.Range(1,4);
+        float t = 0;
+        while (t < 1) {
+            transform.position += new Vector3(1,0)*Time.deltaTime;
+            yield return null;
+            t += Time.deltaTime;
+        }
+        t = 0;
+        while (t < 1) {
+            transform.position += new Vector3(0,-1)*Time.deltaTime;
+            yield return null;
+            t += Time.deltaTime;
+        }
+        t = 0;
+        while (t < 1) {
+            transform.position += new Vector3(-1,0)*Time.deltaTime;
+            yield return null;
+            t += Time.deltaTime;
+        }
+        t = 0;
+        while (t < 1) {
+            transform.position += new Vector3(0,1)*Time.deltaTime;
+            yield return null;
+            t += Time.deltaTime;
         }
     }
 }
