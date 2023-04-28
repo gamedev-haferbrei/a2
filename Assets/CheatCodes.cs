@@ -54,6 +54,7 @@ public class CheatCodes : MonoBehaviour
         ("doge", nameof(Doge)),
         ("ninja", nameof(Ninja)),
         ("squidgame", nameof(SquidGame)),
+        ("rainbow", nameof(Rainbow)),
     };
 
     IEnumerator Doge()
@@ -93,6 +94,13 @@ public class CheatCodes : MonoBehaviour
         {
             npc.SquidGameUndie();
         }
+    }
+
+    public static bool rainbowActive = false;
+    IEnumerator Rainbow()
+    {
+        rainbowActive = !rainbowActive;
+        yield return null;
     }
 
     // Update is called once per frame
