@@ -131,30 +131,33 @@ public class Dance : MonoBehaviour
             t += Time.deltaTime * 2;
         }
     }
-    IEnumerator Square() {
-        Vector3 pos = transform.position;
-        int random = Random.Range(1,4);
+    IEnumerator Square()
+    {
         float t = 0;
-        while (t < 1) {
-            transform.position += new Vector3(1,0)*Time.deltaTime;
+        while (t < 0.25f)
+        {
+            transform.position += new Vector3(2, 0) * Time.deltaTime;
             yield return null;
             t += Time.deltaTime;
         }
         t = 0;
-        while (t < 1) {
-            transform.position += new Vector3(0,-1)*Time.deltaTime;
+        while (t < 0.25f)
+        {
+            transform.position += new Vector3(0, -2) * Time.deltaTime;
             yield return null;
             t += Time.deltaTime;
         }
         t = 0;
-        while (t < 1) {
-            transform.position += new Vector3(-1,0)*Time.deltaTime;
+        while (t < 0.25f)
+        {
+            transform.position += new Vector3(-2, 0) * Time.deltaTime;
             yield return null;
             t += Time.deltaTime;
         }
         t = 0;
-        while (t < 1) {
-            transform.position += new Vector3(0,1)*Time.deltaTime;
+        while (t < 0.25f)
+        {
+            transform.position += new Vector3(0, 2) * Time.deltaTime;
             yield return null;
             t += Time.deltaTime;
         }
