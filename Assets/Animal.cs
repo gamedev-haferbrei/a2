@@ -63,6 +63,10 @@ public class Animal : MonoBehaviour
         {
             Invoke(nameof(SquidGameDie), 1f);
         }
+        //if (AttackActive) 
+       // {
+            //stop Dancing
+        //}
         StartCoroutine(dance.DoDanceMove(false, Random.Range(0, Dance.DanceMoveCount)));
     }
 }

@@ -55,6 +55,7 @@ public class CheatCodes : MonoBehaviour
         ("ninja", nameof(Ninja)),
         ("squidgame", nameof(SquidGame)),
         ("rainbow", nameof(Rainbow)),
+        ("attack", nameof(Attack)),
     };
 
     IEnumerator Doge()
@@ -101,6 +102,37 @@ public class CheatCodes : MonoBehaviour
     {
         rainbowActive = !rainbowActive;
         yield return null;
+    }
+    public static bool AttackActive = false;
+    IEnumerator Attack()
+    {
+        AttackActive = !AttackActive;
+        float t = 0;
+    
+        
+       // Quaternion originalRot = Quaternion.identity;
+    
+        if (AttackActive) 
+        {
+            while (t<1)
+            {
+                foreach (Animal npc in npcs) 
+                {
+                    npc.transform.Rotate(new Vector3(0,0,180) * Time.deltaTime);
+                }
+                yield return null;
+                t += Time.deltaTime;
+
+            }
+        }
+        if (AttackActive == false)
+            {
+                foreach (Animal npc in npcs)
+                {
+                    npc.transform.rotation = Quaternion.identity; 
+                    Debug.Log("reseted" + npc);
+                }
+            }
     }
 
     // Update is called once per frame
