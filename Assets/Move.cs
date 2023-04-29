@@ -36,7 +36,7 @@ public class Move : MonoBehaviour
 
         if (player.isNinja) dir /= 2;
 
-        if (dir != Vector3.zero) CheatCodes.squidGameActive = false;
+        if (dir != Vector3.zero & CheatCodes.squidGameRed) CheatCodes.squidGameActive = false;
 
         transform.position += dir * Time.deltaTime * speed;
     }
