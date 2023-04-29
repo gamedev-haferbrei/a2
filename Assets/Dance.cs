@@ -68,7 +68,7 @@ public class Dance : MonoBehaviour
 
     static readonly string[] epicDanceMoves =
     {
-        nameof(Whoosh),
+        nameof(Whoosh),nameof(Sinus)
     };
 
 
@@ -158,6 +158,19 @@ public class Dance : MonoBehaviour
         while (t < 0.25f)
         {
             transform.position += new Vector3(0, 2) * Time.deltaTime;
+            yield return null;
+            t += Time.deltaTime;
+        }
+    }
+    IEnumerator Sinus() 
+    {
+        float t = 0;
+        while (t < 4) 
+        {
+            //Vector3 pos = transform.position;
+            float y = 15 * Mathf.Sin(2 * t * Mathf.PI + Mathf.PI/2);
+            float x = 20 * Mathf.Sin(t * Mathf.PI + Mathf.PI/2);
+            transform.position += new Vector3(x,y) * Time.deltaTime;
             yield return null;
             t += Time.deltaTime;
         }
