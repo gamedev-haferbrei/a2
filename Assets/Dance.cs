@@ -87,9 +87,9 @@ public class Dance : MonoBehaviour
 
     bool IsWithinScreen(Vector3 pos, float margin)
     {
-        Vector3 spos = cam.WorldToScreenPoint(pos);
-        return spos.x >= -margin && spos.x <= Screen.width + margin
-            && spos.y >= -margin && spos.y <= Screen.height + margin;
+        Vector3 spos = cam.WorldToViewportPoint(pos);
+        return spos.x >= -margin && spos.x <= 1 + margin
+            && spos.y >= -margin && spos.y <= 1 + margin;
     }
 
     IEnumerator Whoosh()
@@ -101,9 +101,9 @@ public class Dance : MonoBehaviour
         for (int i = 0; i <= 40; i++)
         {
 
-            while (IsWithinScreen(transform.position, 200))
+            while (IsWithinScreen(transform.position, 0.1f))
             {
-                float speed = Mathf.Pow(i + 5, 1.5f) / 10;
+                float speed = Mathf.Pow(i + 5, 1.8f) / 10;
                 transform.position += speed * d * 0.1f;
                 Vector3 squeeze = new Vector3(Mathf.Pow(d.x == 0 ? 0.25f : 4f, i / 40f), Mathf.Pow(d.y == 0 ? 0.35f : 4f, i / 40f));
                 transform.localScale = new Vector3(squeeze.x, squeeze.y, 1);
@@ -118,8 +118,8 @@ public class Dance : MonoBehaviour
                 new(-1, 0),
             }[Random.Range(0, 4)];
 
-            transform.position = d.x == 0 ? cam.ViewportToWorldPoint(new Vector3(Random.Range(0.1f, 0.9f), -d.y / 2 + 0.5f - 0.2f * d.y, 10))
-                : cam.ViewportToWorldPoint(new Vector3(-d.x / 2 + 0.5f - 0.2f * d.x, Random.Range(0.1f, 0.9f), 10));
+            transform.position = d.x == 0 ? cam.ViewportToWorldPoint(new Vector3(Random.Range(0.1f, 0.9f), -d.y / 2 + 0.5f - 0.05f * d.y, 10))
+                : cam.ViewportToWorldPoint(new Vector3(-d.x / 2 + 0.5f - 0.05f * d.x, Random.Range(0.1f, 0.9f), 10));
         }
 
         transform.position = startPos;
@@ -162,15 +162,15 @@ public class Dance : MonoBehaviour
             t += Time.deltaTime;
         }
     }
-    IEnumerator Sinus() 
+    IEnumerator Sinus()
     {
         float t = 0;
-        while (t < 4) 
+        while (t < 4)
         {
             //Vector3 pos = transform.position;
-            float y = 15 * Mathf.Sin(2 * t * Mathf.PI + Mathf.PI/2);
-            float x = 20 * Mathf.Sin(t * Mathf.PI + Mathf.PI/2);
-            transform.position += new Vector3(x,y) * Time.deltaTime;
+            float y = 15 * Mathf.Sin(2 * t * Mathf.PI + Mathf.PI / 2);
+            float x = 20 * Mathf.Sin(t * Mathf.PI + Mathf.PI / 2);
+            transform.position += new Vector3(x, y) * Time.deltaTime;
             yield return null;
             t += Time.deltaTime;
         }
@@ -178,16 +178,16 @@ public class Dance : MonoBehaviour
     IEnumerator Jump()
     {
         Vector3 startPos = transform.position;
-        
+
         float t = 0;
-        while (t <= 0.2f) 
+        while (t <= 0.2f)
         {
             transform.localScale += new Vector3(10 * t, -10 * t) * Time.deltaTime;
             transform.position += new Vector3(0, -7f * t) * Time.deltaTime;
             t += Time.deltaTime;
             yield return null;
         }
-        while (t <= 0.6f) 
+        while (t <= 0.6f)
         {
             transform.localScale += new Vector3(-6 * t, 5 * t) * Time.deltaTime;
             transform.position += new Vector3(0, 6 * t) * Time.deltaTime;
@@ -200,9 +200,9 @@ public class Dance : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
-        while (transform.localScale.x <= 1 && transform.localScale.y >= 1) 
+        while (transform.localScale.x <= 1 && transform.localScale.y >= 1)
         {
-            transform.localScale += new Vector3(2.5f*t, -2.5f*t) * Time.deltaTime;  
+            transform.localScale += new Vector3(2.5f * t, -2.5f * t) * Time.deltaTime;
             t += Time.deltaTime;
             yield return null;
         }
@@ -234,7 +234,7 @@ public class Dance : MonoBehaviour
 
         transform.Rotate(new Vector3(0, 0, 30));
 
-        while (t <= 2) 
+        while (t <= 2)
         {
             transform.position += new Vector3(2, 0) * Time.deltaTime;
             t += Time.deltaTime;
@@ -242,15 +242,15 @@ public class Dance : MonoBehaviour
         }
 
         t = 0;
-        while (t<=1)
+        while (t <= 1)
         {
             transform.rotation = Quaternion.Euler(0f, 360 * EaseInOutBack(t), 0f);
             t += Time.deltaTime;
             yield return null;
         }
-        
+
         transform.Rotate(new Vector3(0, 180, 30));
-        
+
         t = 0;
         while (t <= 2)
         {
@@ -260,14 +260,14 @@ public class Dance : MonoBehaviour
         }
 
         transform.Rotate(new Vector3(0, 0, -30));
-        
+
         while (hat.transform.position.y <= transform.position.y + 5.7)
         {
             hat.transform.position += new Vector3(0, 5) * Time.deltaTime;
             t += Time.deltaTime;
             yield return null;
         }
-        
+
         transform.rotation = Quaternion.identity;
         
         clr.a = 0;

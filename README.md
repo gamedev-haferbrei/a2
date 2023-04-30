@@ -3,23 +3,20 @@
 ## Team Members
 
 * Tristan Kneisel (108021218005)
-  * Simple animation: Spin
-  * Special animation: Whoosh
+  * Simple animation: Spin (1)
+  * Special animation: Whoosh (4)
   * Cheat code: Rainbow
   
 * Anna Mankovski (108021240090)
-  * Simple animation: Square
-  * Special animation: Sinus
+  * Simple animation: Square (2)
+  * Special animation: Sinus (5)
   * Cheat code: Attack
 
 * Rudolfs Pogodins (108021225460)
-  * Simple animation: Jump
-  * Special animation: Moonwalk
-  * Cheat code: IDDQD  
-## Screenshots
+  * Simple animation: Jump (3)
+  * Special animation: Moonwalk (6)
+  * Cheat code: IDDQD
+  
+## Credits
 
-TBA
-
-## Notes
-
-* Smooth animations were created by consulting https://easings.net
+* Smooth animations were created with the help of https://easings.net
