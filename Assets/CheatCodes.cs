@@ -146,7 +146,7 @@ public class CheatCodes : MonoBehaviour
         var clr = sr.color;
         if (!player.isDoom)
         {
-            while (t <= 2)
+            while (t <= 1.5f)
             {
                 player.transform.localScale += new Vector3(5 * t, 5 * t) * Time.deltaTime;
                 if (t >= 1)
@@ -160,7 +160,7 @@ public class CheatCodes : MonoBehaviour
             }
             while (doomHud.transform.position.y <= player.transform.position.y - 2.55f) 
             {
-                doomHud.transform.position += new Vector3(0, player.transform.position.y + 4) * Time.deltaTime;
+                doomHud.transform.position += new Vector3(0, player.transform.position.y + 5) * Time.deltaTime;
                 t += Time.deltaTime;
                 yield return null;
             }
@@ -171,7 +171,7 @@ public class CheatCodes : MonoBehaviour
         {
             player.isDoom = !player.isDoom;
             clr.a = 0.1f;
-            while (t <= 2)
+            while (t <= 1.5f)
             {
                 player.transform.localScale += new Vector3(-5 * t, -5 * t) * Time.deltaTime;
                 if (t >= 1)
