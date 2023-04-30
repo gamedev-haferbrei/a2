@@ -19,4 +19,4 @@
   
 ## Credits
 
-* Smmoth animations were created by with the help of https://easings.net
+* Smmoth animations were created with the help of https://easings.net
