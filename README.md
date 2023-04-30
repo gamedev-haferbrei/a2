@@ -7,6 +7,10 @@
   * Special animation: TBA
   * Cheat code: TBA
   
+* Anna Mankovski (108021240090)
+  * Simple animation: Square
+  * Special animation: Sinus
+  * Cheat code: Attack
 ## Screenshots
 
 TBA
