@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     public bool isNinja { get; private set; }
+    public bool isDoom { get; set; } = false;
 
     // Start is called before the first frame update
     void Start()

@@ -7,7 +7,9 @@ public class CheatCodes : MonoBehaviour
 {
     [SerializeField] GameObject npcGroup;
     [SerializeField] GameObject playerObject;
+    [SerializeField] GameObject doomObject;
 
+    DoomHUD doomHud;
     Player player;
     Animal[] npcs;
 
@@ -56,6 +58,7 @@ public class CheatCodes : MonoBehaviour
         ("squidgame", nameof(SquidGame)),
         ("rainbow", nameof(Rainbow)),
         ("attack", nameof(Attack)),
+        ("iddqd", nameof(Doom))
     };
 
     IEnumerator Doge()
@@ -133,6 +136,55 @@ public class CheatCodes : MonoBehaviour
                     Debug.Log("reseted" + npc);
                 }
             }
+    }
+
+    IEnumerator Doom()
+    {
+        doomHud = doomObject.GetComponent<DoomHUD>();
+        float t = 0;
+        var sr = player.GetComponent<SpriteRenderer>(); 
+        var clr = sr.color;
+        if (!player.isDoom)
+        {
+            while (t <= 2)
+            {
+                player.transform.localScale += new Vector3(5 * t, 5 * t) * Time.deltaTime;
+                if (t >= 1)
+                {
+                    clr.a -= clr.a * 0.1f;
+                    sr.color = clr;
+
+                }
+                t += Time.deltaTime;
+                yield return null;
+            }
+            while (doomHud.transform.position.y <= player.transform.position.y - 2.1f) 
+            {
+                doomHud.transform.position += new Vector3(0, player.transform.position.y + 4) * Time.deltaTime;
+                t += Time.deltaTime;
+                yield return null;
+            }
+            doomHud.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2.1f);
+            player.isDoom = !player.isDoom;
+        }
+        else
+        {
+            player.isDoom = !player.isDoom;
+            clr.a = 0.1f;
+            while (t <= 2)
+            {
+                player.transform.localScale += new Vector3(-5 * t, -5 * t) * Time.deltaTime;
+                if (t >= 1)
+                {
+                    clr.a += 0.05f;
+                    sr.color = clr;
+                }
+                doomHud.transform.position += new Vector3(0, player.transform.position.y - 6) * Time.deltaTime;
+                t += Time.deltaTime;
+                yield return null;
+            }
+            doomHud.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 8f);
+        }
     }
 
     // Update is called once per frame

@@ -63,12 +63,12 @@ public class Dance : MonoBehaviour
     // REGISTER DANCE MOVES HERE
     static readonly string[] danceMoves =
     {
-        nameof(Spin),nameof(Square)
+        nameof(Spin),nameof(Square),nameof(Jump)
     };
 
     static readonly string[] epicDanceMoves =
     {
-        nameof(Whoosh),nameof(Sinus)
+        nameof(Whoosh),nameof(Sinus),nameof(Moonwalk)
     };
 
 
@@ -174,5 +174,101 @@ public class Dance : MonoBehaviour
             yield return null;
             t += Time.deltaTime;
         }
+    }
+    IEnumerator Jump()
+    {
+        Vector3 startPos = transform.position;
+        
+        float t = 0;
+        while (t <= 0.2f) 
+        {
+            transform.localScale += new Vector3(10 * t, -10 * t) * Time.deltaTime;
+            transform.position += new Vector3(0, -7f * t) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+        while (t <= 0.6f) 
+        {
+            transform.localScale += new Vector3(-6 * t, 5 * t) * Time.deltaTime;
+            transform.position += new Vector3(0, 6 * t) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+        while (t <= 0.8f)
+        {
+            transform.localScale += new Vector3(2 * t, -2 * t) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+        while (transform.localScale.x <= 1 && transform.localScale.y >= 1) 
+        {
+            transform.localScale += new Vector3(2.5f*t, -2.5f*t) * Time.deltaTime;  
+            t += Time.deltaTime;
+            yield return null;
+        }
+        transform.localScale = new Vector3(1, 1, 1);
+        while (transform.position.y >= startPos.y)
+        {
+            transform.position += new Vector3(0, -4 * t) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    IEnumerator Moonwalk()
+    {
+        var hat = GameObject.Find("hat");
+
+        float t = 0;
+        while (hat.transform.position.y >= transform.position.y + 0.7f)
+        {
+            hat.transform.position += new Vector3(0, -3.5f) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+        t = 0;
+
+        transform.Rotate(new Vector3(0, 0, 30));
+
+        while (t <= 2) 
+        {
+            transform.position += new Vector3(2, 0) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        t = 0;
+        while (t<=1)
+        {
+            transform.rotation = Quaternion.Euler(0f, 360 * EaseInOutBack(t), 0f);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        
+        transform.Rotate(new Vector3(0, 180, 30));
+        
+        t = 0;
+        while (t <= 2)
+        {
+            transform.position += new Vector3(-2, 0) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.Rotate(new Vector3(0, 0, -30));
+        
+        while (hat.transform.position.y <= transform.position.y + 5.7)
+        {
+            hat.transform.position += new Vector3(0, 5) * Time.deltaTime;
+            t += Time.deltaTime;
+            yield return null;
+        }
+        
+        transform.rotation = Quaternion.identity;
+        
+        var sr = hat.GetComponent<SpriteRenderer>();
+        var clr = sr.color;
+        clr.a = 0;
+        sr.color = clr;
     }
 }
