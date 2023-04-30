@@ -4,8 +4,8 @@
 
 * Tristan Kneisel (108021218005)
   * Simple animation: Spin
-  * Special animation: TBA
-  * Cheat code: TBA
+  * Special animation: Whoosh
+  * Cheat code: Rainbow
   
 * Anna Mankovski (108021240090)
   * Simple animation: Square
