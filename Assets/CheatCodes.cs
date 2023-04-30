@@ -179,7 +179,7 @@ public class CheatCodes : MonoBehaviour
                     clr.a += 0.05f;
                     sr.color = clr;
                 }
-                doomHud.transform.position += new Vector3(0, player.transform.position.y - 6) * Time.deltaTime;
+                doomHud.transform.position += new Vector3(0, player.transform.position.y - 7) * Time.deltaTime;
                 t += Time.deltaTime;
                 yield return null;
             }
