@@ -11,6 +11,11 @@
   * Simple animation: Square
   * Special animation: Sinus
   * Cheat code: Attack
+
+* Rudolfs Pogodins (108021225460)
+  * Simple animation: Jump
+  * Special animation: Moonwalk
+  * Cheat code: IDDQD  
 ## Screenshots
 
 TBA
