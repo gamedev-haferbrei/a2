@@ -47,8 +47,10 @@ public class Player : MonoBehaviour
     public void ToggleNinja()
     {
         isNinja = !isNinja;
-
-        Color c = spriteRenderer.color;
-        spriteRenderer.color = new Color(c.r, c.g, c.b, isNinja ? 0.5f : 1f);
+        if (!isDoom)
+        {
+            Color c = spriteRenderer.color;
+            spriteRenderer.color = new Color(c.r, c.g, c.b, isNinja ? 0.5f : 1f);
+        }
     }
 }

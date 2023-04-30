@@ -176,8 +176,16 @@ public class CheatCodes : MonoBehaviour
                 player.transform.localScale += new Vector3(-5 * t, -5 * t) * Time.deltaTime;
                 if (t >= 1)
                 {
-                    clr.a += 0.05f;
-                    sr.color = clr;
+                    if (player.isNinja)
+                    {
+                        clr.a = 0.5f;
+                        sr.color = clr;
+                    }
+                    else
+                    {
+                        clr.a += 0.05f;
+                        sr.color = clr;
+                    }
                 }
                 doomHud.transform.position += new Vector3(0, player.transform.position.y - 7) * Time.deltaTime;
                 t += Time.deltaTime;
