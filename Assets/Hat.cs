@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Hat : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    [SerializeField] Player playerObject;
+    Player player;
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
+        player = playerObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (player.isDoom)
         {
-            var clr = spriteRenderer.color;
-            clr.a = 1;
-            spriteRenderer.color = clr;
+            var clr = sr.color;
+            clr.a = 0;
+            sr.color = clr;
         }
     }
 }

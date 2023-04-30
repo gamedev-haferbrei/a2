@@ -158,13 +158,13 @@ public class CheatCodes : MonoBehaviour
                 t += Time.deltaTime;
                 yield return null;
             }
-            while (doomHud.transform.position.y <= player.transform.position.y - 2.1f) 
+            while (doomHud.transform.position.y <= player.transform.position.y - 2.55f) 
             {
                 doomHud.transform.position += new Vector3(0, player.transform.position.y + 4) * Time.deltaTime;
                 t += Time.deltaTime;
                 yield return null;
             }
-            doomHud.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2.1f);
+            doomHud.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2.55f);
             player.isDoom = !player.isDoom;
         }
         else
@@ -184,6 +184,7 @@ public class CheatCodes : MonoBehaviour
                 yield return null;
             }
             doomHud.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 8f);
+            player.transform.localScale = new Vector3(1, 1);
         }
     }
 

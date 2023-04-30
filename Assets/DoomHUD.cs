@@ -27,9 +27,9 @@ public class DoomHUD : MonoBehaviour
     Vector3 TargetArea()
     {
         Vector3 target = new Vector3();
-        target = 0.5f * Random.insideUnitSphere;
+        target = 1 * Random.insideUnitSphere;
         float x = transform.position.x + 0.5f;
-        float y = transform.position.y + 5;
+        float y = transform.position.y + 5.5f;
         target.x += x;
         target.y += y;
         return target;

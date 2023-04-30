@@ -218,6 +218,10 @@ public class Dance : MonoBehaviour
     IEnumerator Moonwalk()
     {
         var hat = GameObject.Find("hat");
+        var sr = hat.GetComponent<SpriteRenderer>();
+        var clr = sr.color;
+        clr.a = 1;
+        sr.color = clr;
 
         float t = 0;
         while (hat.transform.position.y >= transform.position.y + 0.7f)
@@ -266,8 +270,6 @@ public class Dance : MonoBehaviour
         
         transform.rotation = Quaternion.identity;
         
-        var sr = hat.GetComponent<SpriteRenderer>();
-        var clr = sr.color;
         clr.a = 0;
         sr.color = clr;
     }
